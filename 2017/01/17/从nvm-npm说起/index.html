@@ -6,14 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://gucijiang.com">
-  <title>Archives: 2017 | 谷子和姜的code之路</title>
+  <title>从nvm,npm说起 | 谷子和姜的code之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="谷子和姜的code之路">
-<meta property="og:url" content="http://gucijiang.com/archives/2017/index.html">
+  <meta name="description" content="在安装Hexo的过程中安装了Node的版本管理工具NVM,然后用NVM安装了稳定版本7.4.0的Node以及NPM,那么NVM和NPM的作用又是什么？
+NVM的介绍(保证Xcode7和Xcode8的各自独立的环境)
+
+NVM是Node版本管理工具，Node版本从0.1.14到7.4.0之间几十个版本。
+NVM将不同的Node版本存储到’~/.nvm//‘下，然后修改$PATH，将指定版本的Node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从nvm,npm说起">
+<meta property="og:url" content="http://gucijiang.com/2017/01/17/从nvm-npm说起/index.html">
 <meta property="og:site_name" content="谷子和姜的code之路">
+<meta property="og:description" content="在安装Hexo的过程中安装了Node的版本管理工具NVM,然后用NVM安装了稳定版本7.4.0的Node以及NPM,那么NVM和NPM的作用又是什么？
+NVM的介绍(保证Xcode7和Xcode8的各自独立的环境)
+
+NVM是Node版本管理工具，Node版本从0.1.14到7.4.0之间几十个版本。
+NVM将不同的Node版本存储到’~/.nvm//‘下，然后修改$PATH，将指定版本的Node">
+<meta property="og:updated_time" content="2017-01-17T14:34:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谷子和姜的code之路">
+<meta name="twitter:title" content="从nvm,npm说起">
+<meta name="twitter:description" content="在安装Hexo的过程中安装了Node的版本管理工具NVM,然后用NVM安装了稳定版本7.4.0的Node以及NPM,那么NVM和NPM的作用又是什么？
+NVM的介绍(保证Xcode7和Xcode8的各自独立的环境)
+
+NVM是Node版本管理工具，Node版本从0.1.14到7.4.0之间几十个版本。
+NVM将不同的Node版本存储到’~/.nvm//‘下，然后修改$PATH，将指定版本的Node">
   
     <link rel="alternative" href="/atom.xml" title="谷子和姜的code之路" type="application/atom+xml">
   
@@ -137,36 +153,72 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-从nvm-npm说起" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      从nvm,npm说起
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/17/从nvm-npm说起/" class="archive-article-date">
+
+        
+        <a href="/2017/01/17/从nvm-npm说起/" class="archive-article-date">
   	<time datetime="2017-01-17T13:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-17</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/17/从nvm-npm说起/">从nvm,npm说起</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在安装Hexo的过程中安装了Node的版本管理工具NVM,然后用NVM安装了稳定版本7.4.0的Node以及NPM,那么NVM和NPM的作用又是什么？</p>
+<p>NVM的介绍(保证Xcode7和Xcode8的各自独立的环境)</p>
+<ul>
+<li>NVM是Node版本管理工具，Node版本从0.1.14到7.4.0之间几十个版本。</li>
+<li>NVM将不同的Node版本存储到’~/.nvm/<version>/‘下，然后修改$PATH，将指定版本的Node路径加入，这样我们调用的Node命令即是使用指定版本的Node。</version></li>
+<li>NVM的全局模块存在于各自版本的沙箱中，切换版本后需要重新安装，不同版本间也不存在任何冲突。</li>
+</ul>
+<p>NPM的介绍(类似于Cocoapods)</p>
+<ul>
+<li>NPM是Node安装包管理工具，NPM背后的核心原则是模块化安装(模块类似于静态库)</li>
+<li>允许用户从NPM服务器下载并安装别人编写的第三方包到本地使用</li>
+<li>允许用户将自己编写的包或命令行程序上传到NPM服务器供别人使用。</li>
+</ul>
+<p>NPM是随着Node一并下载安装的</p>
+<p>其实不止Node存在NVM和NPM，Ruby存在rvm和gem，Python存在pyenv和pip，以及Objc近两年兴起的第三方包管理工具cocoapods，这些工具的存在使得编程语言的环境切换和包管理变的简洁。</p>
+<p>与编程语言第三方包管理工具相关的就是liunx和unix环境的应用安装工具。Mac基Unix，它的工具主要是Homebrew，可以安装相应的应用。而Linux的两大类，RedHat系列（Redhat和Centos等）包管理工具则是yum，Debian系列（Ubuntu等）包管理工具则是apt-get。</p>
+<p><em>下一篇写一些关于NPM安装第三方包的文章</em></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝茶<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -178,57 +230,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://gucijiang.com/2017/01/17/从nvm-npm说起/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/15/记于2017-1-15/" class="archive-article-date">
-  	<time datetime="2017-01-15T15:13:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-15</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/15/记于2017-1-15/">记于2017.1.15</a>
-    </h1>
+  
+    <a href="/2017/01/15/记于2017-1-15/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">记于2017.1.15</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -251,8 +334,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
