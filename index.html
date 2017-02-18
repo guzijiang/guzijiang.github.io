@@ -164,7 +164,7 @@
 <p>当你在Mac上Terminal输入npm install命令时，Linux会执行/lib/node_modules/npm/bin/npm-cli.js这个js文件，其中npm install分别是argv0和argv1，在npm.js中会根据参数argv1继而去执行install.js文件，具体安装哪些模块则是根据package.json中的配置去安装。</p>
 <p><img src="/assets/img/npm1.png" alt="npm所支持的命令"></p>
 <p>那么NPM如何知道每个模块的信息呢？在于NPM模块提供了一个查询服务，叫做registry。以npmjs.org为例，它的查询服务网址是<a href="https://registry.npmjs.org/" target="_blank" rel="external">https://registry.npmjs.org/</a>。这个网址后面跟上模块名，就会得到一个JSON对象，里面是该模块所有版本的信息。比如访问<a href="https://registry.npmjs.org/react" target="_blank" rel="external">https://registry.npmjs.org/react</a>，就会看到react模块所有版本的信息，包括版本号，下载地址。如此NPM就能下载模块到~/npm下，并解压到当前项目的node_modules目录下。</p>
-<p>在执行npm install命令的过程中会出现安装过程缓慢的情况，由于GFW原因，我们最好是配置npm镜像，npm镜像的作用在于替换文中所提到的查询服务网址，以及模块信息中的下载地址，由于镜像会复制这些定时更新模块到GFW内的服务器地址上，所以会相应加快NodeJS模块的安装速度。</p>
+<p>在执行npm install命令的过程中会出现安装过程缓慢的情况，由于GFW原因，我们最好是配置npm镜像，npm镜像的作用在于替换文中所提到的查询服务网址，以及模块信息中的下载地址，由于镜像会定时更新这些模块到GFW内的服务器地址上，所以会相应加快NodeJS模块的安装速度。至于Ruby镜像的大致逻辑和NodeJS的镜像相差无几。</p>
 <p>此处贴一些关于淘宝镜像的链接</p>
 <ul>
 <li><a href="http://www.tuicool.com/articles/UVR3qqA" target="_blank" rel="external">http://www.tuicool.com/articles/UVR3qqA</a></li>
