@@ -6,14 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://gucijiang.com">
-  <title>Archives | 谷子和姜的code之路</title>
+  <title>关于npm intall命令 | 谷子和姜的code之路</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="谷子和姜的code之路">
-<meta property="og:url" content="http://gucijiang.com/archives/index.html">
+  <meta name="description" content="上文有简单介绍了NVM和NPM，今天再介绍下npm intstall的执行过程
+首先要了解Linux的GUI(图形界面)和CLI(命令行界面)，而NPM就是NodeJS模块中的cli项目，也就是说NVM模块是cli类型的module。
+当你在Mac上Terminal输入npm install命令时，Linux会执行/lib/node_modules/npm/bin/npm-cli.js这个js文件">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于npm intall命令">
+<meta property="og:url" content="http://gucijiang.com/2017/02/18/关于npm install命令/index.html">
 <meta property="og:site_name" content="谷子和姜的code之路">
+<meta property="og:description" content="上文有简单介绍了NVM和NPM，今天再介绍下npm intstall的执行过程
+首先要了解Linux的GUI(图形界面)和CLI(命令行界面)，而NPM就是NodeJS模块中的cli项目，也就是说NVM模块是cli类型的module。
+当你在Mac上Terminal输入npm install命令时，Linux会执行/lib/node_modules/npm/bin/npm-cli.js这个js文件">
+<meta property="og:image" content="http://gucijiang.com/assets/img/npm1.png">
+<meta property="og:updated_time" content="2017-02-18T09:25:05.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="谷子和姜的code之路">
+<meta name="twitter:title" content="关于npm intall命令">
+<meta name="twitter:description" content="上文有简单介绍了NVM和NPM，今天再介绍下npm intstall的执行过程
+首先要了解Linux的GUI(图形界面)和CLI(命令行界面)，而NPM就是NodeJS模块中的cli项目，也就是说NVM模块是cli类型的module。
+当你在Mac上Terminal输入npm install命令时，Linux会执行/lib/node_modules/npm/bin/npm-cli.js这个js文件">
+<meta name="twitter:image" content="http://gucijiang.com/assets/img/npm1.png">
   
     <link rel="alternative" href="/atom.xml" title="谷子和姜的code之路" type="application/atom+xml">
   
@@ -137,36 +149,76 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-关于npm install命令" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      关于npm intall命令
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/02/18/关于npm install命令/" class="archive-article-date">
+
+        
+        <a href="/2017/02/18/关于npm install命令/" class="archive-article-date">
   	<time datetime="2017-02-18T08:22:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-18</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/02/18/关于npm install命令/">关于npm intall命令</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>上文有简单介绍了NVM和NPM，今天再介绍下npm intstall的执行过程</p>
+<p>首先要了解Linux的GUI(图形界面)和CLI(命令行界面)，而NPM就是NodeJS模块中的cli项目，也就是说NVM模块是cli类型的module。</p>
+<p>当你在Mac上Terminal输入npm install命令时，Linux会执行/lib/node_modules/npm/bin/npm-cli.js这个js文件，其中npm install分别是argv0和argv1，在npm.js中会根据参数argv1继而去执行install.js文件，具体安装哪些模块则是根据package.json中的配置去安装。</p>
+<p><img src="/assets/img/npm1.png" alt="npm所支持的命令"></p>
+<p>那么NPM如何知道每个模块的信息呢？在于NPM模块提供了一个查询服务，叫做registry。以npmjs.org为例，它的查询服务网址是<a href="https://registry.npmjs.org/" target="_blank" rel="external">https://registry.npmjs.org/</a>。这个网址后面跟上模块名，就会得到一个JSON对象，里面是该模块所有版本的信息。比如访问<a href="https://registry.npmjs.org/react" target="_blank" rel="external">https://registry.npmjs.org/react</a>，就会看到react模块所有版本的信息，包括版本号，下载地址。如此NPM就能下载模块到~/npm下，并解压到当前项目的node_modules目录下。</p>
+<p>在执行npm install命令的过程中会出现安装过程缓慢的情况，由于GFW原因，我们最好是配置npm镜像，npm镜像的作用在于替换文中所提到的查询服务网址，以及模块信息中的下载地址，由于镜像会复制这些定时更新模块到GFW内的服务器地址上，所以会相应加快NodeJS模块的安装速度。</p>
+<p>此处贴一些关于淘宝镜像的链接</p>
+<ul>
+<li><a href="http://www.tuicool.com/articles/UVR3qqA" target="_blank" rel="external">http://www.tuicool.com/articles/UVR3qqA</a></li>
+<li><a href="http://cnodejs.org/topic/4f9904f9407edba21468f31e" target="_blank" rel="external">http://cnodejs.org/topic/4f9904f9407edba21468f31e</a></li>
+</ul>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我喝茶<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -178,95 +230,88 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://gucijiang.com/2017/02/18/关于npm install命令/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/17/从nvm-npm说起/" class="archive-article-date">
-  	<time datetime="2017-01-17T13:43:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-17</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/17/从nvm-npm说起/">从nvm,npm说起</a>
-    </h1>
+  
+    <a href="/2017/01/17/从nvm-npm说起/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从nvm,npm说起</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂记</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/01/15/记于2017-1-15/" class="archive-article-date">
-  	<time datetime="2017-01-15T15:13:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/01/15/记于2017-1-15/">记于2017.1.15</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">情感</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -289,8 +334,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
